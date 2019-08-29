@@ -15,10 +15,10 @@ public class CustomerBean extends MemberBean{
 
 	@Override
 	public String toString() {
-		return "회원정보  [아이디=\" + getId() + \", 비번=\" \r\n" + 
-				"					+ getPass() + \", 이름=\" \r\n" + 
-				"					+ getName() + \", 주민번호=\" \r\n" + 
-				"					+ getSsn() + \", 신용도=\" \r\n" + 
-				"							+ credit+ \"]";
-	}
+		return "고객정보 [아이디=" + getId()
+								+ ", 비번=" + getPw() 
+								+ ", 이름=" + getName()
+								+ ", 주민번호=" + getSsn() 
+								+ ", 신용도=" + credit+ "]";
+ }
 }

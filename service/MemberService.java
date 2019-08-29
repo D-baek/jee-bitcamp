@@ -1,11 +1,13 @@
 package com.bank.web.service;
+import java.util.List;
 import com.bank.web.domains.*;
+
 public interface MemberService {
 	public void join(CustomerBean param);
 	public void register(EmployeeBean param);
-	public CustomerBean[] findAllCustomers();
-	public EmployeeBean[] findAllEmployees();
-	public MemberBean[] findByName(String name); 
+	public List<CustomerBean>findAllCustomers();
+	public List<EmployeeBean> findAllEmployees();
+	public List<MemberBean> findByName(String name); 
 	public MemberBean findById(String id); 
 	public boolean login(MemberBean param); 
 	public int countCustomers(); 
