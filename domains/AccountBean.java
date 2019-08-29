@@ -33,8 +33,8 @@ public class AccountBean implements Serializable {
 
 	@Override
 	public String toString() {
-		return "AccountBean [accountNum=" + accountNum 
-				+ ", regDate=" + regDate 
-				+ ", money=" + money + "]";
+		return "계좌정보 [계좌번호=" + accountNum 
+				+ ", 생성일=" + regDate 
+				+ ", 입금액=" + money + "]";
 	}
 }

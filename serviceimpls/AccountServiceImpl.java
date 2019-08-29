@@ -1,30 +1,30 @@
 package com.bank.web.serviceimpls;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-
 import com.bank.web.domains.AccountBean;
 import com.bank.web.service.AccountService;
 
 
 public class AccountServiceImpl implements AccountService{
-	private AccountBean[] accounts;
-	private int count;
+	
+	private List<AccountBean> accounts;
+	
 	
 	public AccountServiceImpl() {
-		accounts = new AccountBean[10];
-		count = 0;
+		accounts = new ArrayList<>();
+	
 	}
 
 	@Override
 	public void createAccount(int money) {
 		AccountBean acc = new AccountBean();
 		acc.setAccountNum(createAccountNum());
-		acc.setMoney(money+"");
+		acc.setMoney(money+ "");
 		acc.setRegDate(findDate());
-		accounts[count] = acc;
-		count++;
+		
 	}
 
 	@Override
@@ -38,14 +38,14 @@ public class AccountServiceImpl implements AccountService{
 	}
 
 	@Override
-	public AccountBean[] findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<AccountBean> findAll() {
+		return accounts;
 	}
 
 	@Override
-	public AccountBean findByAccountNum(String accountNum) {
-		// TODO Auto-generated method stub
+	public List<AccountBean> findByAccountNum(String accountNum) {
+		List<AccountBean> acc = new ArrayList<>();
+		int count;
 		return null;
 	}
 

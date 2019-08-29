@@ -14,5 +14,5 @@ public interface MemberService {
 	public int countEmployees(); 
 	public boolean existId(String id);
 	public void updatePass(MemberBean param);
-	public void deleteMember(MemberBean param);
+	public boolean deleteMember(MemberBean param);
 }

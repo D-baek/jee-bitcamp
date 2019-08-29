@@ -121,30 +121,34 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean existId(String id) {
-		boolean flag = false;
-		
-		for(CustomerBean c : customers) {
-			if(id.equals(c.getId())) {
-				flag = true;
-				break;
-			}
-		}
-		for(EmployeeBean e : employees) {
-			if(id.equals(e.getId())) {
-				flag = true;
-				break;
-			}
-		}
-		return flag;
+		boolean b = false;
+		MemberBean m = findById(id);
+		return employees.contains(m) || customers.contains(m);
 	}
 
 	@Override
 	public void updatePass(MemberBean param) {
-			
+		String id = param.getId();
+		String oldPw = param.getPw().split(",")[0];
+		String newPw = param.getPw().split(",")[1];
+		MemberBean m = findById(id);
+		if(m.getPw().equals(oldPw)) {
+			int idx = (employees.contains(m)
+					? employees.indexOf(m)
+							: customers.indexOf(m));
+				if(employees.contains(m)) {
+					employees.get(idx).setPw(newPw);
+				}else {
+					customers.get(idx).setPw(newPw);
+				}	
+			}	
 	}
 
 	@Override
-	public void deleteMember(MemberBean param) {
-				
-	}
-}
+	public boolean deleteMember(MemberBean param) {
+		MemberBean m = findById(param.getId());
+		return (employees.contains(m)
+						? employees.remove(m)
+							: customers.remove(m));
+		}
+ }

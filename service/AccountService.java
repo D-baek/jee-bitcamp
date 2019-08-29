@@ -1,13 +1,13 @@
 package com.bank.web.service;
-
+import java.util.List;
 import com.bank.web.domains.*;
 
 public interface AccountService {
 	public void createAccount(int money);
 	public String createAccountNum();
 	// 계좌번호 생성(1234-5678)
-	public AccountBean[] findAll();
-	public AccountBean findByAccountNum(String accountNum);
+	public List<AccountBean> findAll();
+	public List<AccountBean> findByAccountNum(String accountNum);
 	public int countAccounts();
 	public boolean existAccountNum(String accountNum);
 	public String findDate(); // 오늘날짜, 현재시간(분까지) 반환
